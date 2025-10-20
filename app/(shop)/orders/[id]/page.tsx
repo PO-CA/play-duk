@@ -5,6 +5,9 @@ import { useParams, useRouter } from 'next/navigation';
 import { useAuthStore } from '@/store/auth-store';
 import { useOrder, useCancelOrder } from '@/hooks/useOrders';
 
+// 동적 라우트 설정: 런타임에 동적으로 생성 허용
+export const dynamicParams = true;
+
 export default function OrderDetailPage() {
   const params = useParams();
   const router = useRouter();

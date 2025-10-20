@@ -10,6 +10,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Vercel 배포 최적화
+  eslint: {
+    ignoreDuringBuilds: false,
+  },
+  typescript: {
+    ignoreBuildErrors: false,
+  },
 };
 
 export default nextConfig;

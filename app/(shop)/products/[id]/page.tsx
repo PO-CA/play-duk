@@ -7,6 +7,9 @@ import { useCart } from '@/hooks/useCart';
 import { useAuthStore } from '@/store/auth-store';
 import { toast } from 'sonner';
 
+// 동적 라우트 설정: 런타임에 동적으로 생성 허용
+export const dynamicParams = true;
+
 export default function ProductDetailPage() {
   const params = useParams();
   const router = useRouter();
