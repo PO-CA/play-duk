@@ -1,6 +1,5 @@
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   // 이미지 최적화 설정
   images: {
     remotePatterns: [
@@ -13,3 +12,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
