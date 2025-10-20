@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { authApi } from '@/app/services/auth';
-import { useAuthStore } from '@/app/store/auth-store';
+import { authApi } from '@/services/auth';
+import { useAuthStore } from '@/store/auth-store';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
-import { getErrorMessage } from '@/app/lib/axios';
+import { getErrorMessage } from '@/lib/axios';
 
 export function useAuth() {
   const router = useRouter();

@@ -8,8 +8,8 @@ import {
   useUpdateAddress,
   useDeleteAddress,
   useSetDefaultAddress,
-} from '@/app/hooks/useAddresses';
-import type { CreateAddressRequest } from '@/app/services/addresses';
+} from '@/hooks/useAddresses';
+import type { CreateAddressRequest } from '@/services/addresses';
 
 // localStorage에서 직접 인증 체크
 function checkAuth(): boolean {

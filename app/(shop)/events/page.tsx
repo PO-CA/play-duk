@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useEvents } from '@/app/hooks/useEvents';
+import { useEvents } from '@/hooks/useEvents';
 
 type TabType = 'ONGOING' | 'WINNER_ANNOUNCED' | 'CLOSED';
 

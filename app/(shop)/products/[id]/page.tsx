@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { useProduct } from '@/app/hooks/useProducts';
-import { useCart } from '@/app/hooks/useCart';
-import { useAuthStore } from '@/app/store/auth-store';
+import { useProduct } from '@/hooks/useProducts';
+import { useCart } from '@/hooks/useCart';
+import { useAuthStore } from '@/store/auth-store';
 import { toast } from 'sonner';
 
 export default function ProductDetailPage() {

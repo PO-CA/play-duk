@@ -1,4 +1,4 @@
-import { api } from '@/app/lib/axios';
+import { api } from '@/lib/axios';
 
 export interface SignUpRequest {
   email: string;

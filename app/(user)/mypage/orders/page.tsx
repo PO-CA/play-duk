@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useOrders, useCancelOrder } from '@/app/hooks/useOrders';
+import { useOrders, useCancelOrder } from '@/hooks/useOrders';
 
 // localStorage에서 직접 인증 체크
 function checkAuth(): boolean {

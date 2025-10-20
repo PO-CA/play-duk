@@ -2,9 +2,9 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { useCartStore } from '@/app/store/cart-store';
-import { useAuthStore } from '@/app/store/auth-store';
-import { SearchModal } from '@/app/components/home/search-modal';
+import { useCartStore } from '@/store/cart-store';
+import { useAuthStore } from '@/store/auth-store';
+import { SearchModal } from '@/components/home/search-modal';
 
 /**
  * 헤더 컴포넌트 - 밝은 녹색 테마

@@ -1,8 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { usersApi, type UpdateUserRequest } from '@/app/services/users';
+import { usersApi, type UpdateUserRequest } from '@/services/users';
 import { toast } from 'sonner';
-import { getErrorMessage } from '@/app/lib/axios';
-import { useAuthStore } from '@/app/store/auth-store';
+import { getErrorMessage } from '@/lib/axios';
+import { useAuthStore } from '@/store/auth-store';
 
 export function useUser() {
   return useQuery({

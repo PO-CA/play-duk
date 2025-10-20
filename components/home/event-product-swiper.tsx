@@ -3,7 +3,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import Link from 'next/link';
-import type { Event } from '@/app/services/events';
+import type { Event } from '@/services/events';
 
 import 'swiper/css';
 import 'swiper/css/navigation';

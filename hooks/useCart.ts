@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { cartApi } from '@/app/services/cart';
+import { cartApi } from '@/services/cart';
 import { toast } from 'sonner';
-import { getErrorMessage } from '@/app/lib/axios';
+import { getErrorMessage } from '@/lib/axios';
 
 export function useCart() {
   const queryClient = useQueryClient();

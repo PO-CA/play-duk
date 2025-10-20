@@ -1,13 +1,13 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import { MainBannerSwiper } from '@/app/components/home/main-banner-swiper';
-import { ArtistSwiper } from '@/app/components/home/artist-swiper';
-import { EventProductSwiper } from '@/app/components/home/event-product-swiper';
-import { SimpleBanner } from '@/app/components/home/simple-banner';
-import { ProductSection } from '@/app/components/home/product-section';
-import { productsApi } from '@/app/services/products';
-import { eventsApi } from '@/app/services/events';
+import { MainBannerSwiper } from '@/components/home/main-banner-swiper';
+import { ArtistSwiper } from '@/components/home/artist-swiper';
+import { EventProductSwiper } from '@/components/home/event-product-swiper';
+import { SimpleBanner } from '@/components/home/simple-banner';
+import { ProductSection } from '@/components/home/product-section';
+import { productsApi } from '@/services/products';
+import { eventsApi } from '@/services/events';
 
 export default function HomePage() {
   // 데이터 fetch

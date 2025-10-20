@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useCart } from '@/app/hooks/useCart';
-import { useCreateOrder } from '@/app/hooks/useOrders';
-import { useAuthStore } from '@/app/store/auth-store';
+import { useCart } from '@/hooks/useCart';
+import { useCreateOrder } from '@/hooks/useOrders';
+import { useAuthStore } from '@/store/auth-store';
 
 export default function CheckoutPage() {
   const router = useRouter();

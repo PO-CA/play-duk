@@ -2,7 +2,7 @@
 
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useEvent, useEventWinners } from '@/app/hooks/useEvents';
+import { useEvent, useEventWinners } from '@/hooks/useEvents';
 
 export default function EventDetailPage() {
   const params = useParams();

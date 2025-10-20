@@ -1,8 +1,8 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useCart } from '@/app/hooks/useCart';
-import { useAuthStore } from '@/app/store/auth-store';
+import { useCart } from '@/hooks/useCart';
+import { useAuthStore } from '@/store/auth-store';
 import { useEffect } from 'react';
 
 export default function CartPage() {

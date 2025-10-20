@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { eventsApi } from '@/app/services/events';
+import { eventsApi } from '@/services/events';
 
 export function useEvents(params?: {
   status?: 'ONGOING' | 'WINNER_ANNOUNCED' | 'CLOSED';

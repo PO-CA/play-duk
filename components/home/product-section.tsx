@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { ProductCard } from '@/app/components/product-card';
-import type { Product } from '@/app/services/products';
+import { ProductCard } from '@/components/product-card';
+import type { Product } from '@/services/products';
 
 interface ProductSectionProps {
   title: string;

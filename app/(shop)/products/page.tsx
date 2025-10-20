@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useProducts } from '@/app/hooks/useProducts';
+import { useProducts } from '@/hooks/useProducts';
 
 export default function ProductsPage() {
   const [keyword, setKeyword] = useState('');

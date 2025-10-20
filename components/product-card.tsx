@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import type { Product } from '@/app/types';
+import type { Product } from '@/types';
 
 interface ProductCardProps {
   product: Product;

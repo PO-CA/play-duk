@@ -1,8 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { ordersApi, type CreateOrderRequest } from '@/app/services/orders';
+import { ordersApi, type CreateOrderRequest } from '@/services/orders';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
-import { getErrorMessage } from '@/app/lib/axios';
+import { getErrorMessage } from '@/lib/axios';
 
 export function useOrders(params?: { page?: number; size?: number }) {
   return useQuery({

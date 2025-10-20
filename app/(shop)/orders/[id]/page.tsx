@@ -2,8 +2,8 @@
 
 import { useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { useAuthStore } from '@/app/store/auth-store';
-import { useOrder, useCancelOrder } from '@/app/hooks/useOrders';
+import { useAuthStore } from '@/store/auth-store';
+import { useOrder, useCancelOrder } from '@/hooks/useOrders';
 
 export default function OrderDetailPage() {
   const params = useParams();

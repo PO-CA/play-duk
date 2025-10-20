@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useUser, useUpdateUser } from '@/app/hooks/useUser';
-import type { UpdateUserRequest } from '@/app/services/users';
+import { useUser, useUpdateUser } from '@/hooks/useUser';
+import type { UpdateUserRequest } from '@/services/users';
 
 // localStorage에서 직접 인증 체크
 function checkAuth(): boolean {
