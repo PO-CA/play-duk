@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { cartApi } from '@/app/api/b2c/cart';
+import { cartApi } from '@/app/services/cart';
 import { toast } from 'sonner';
 import { getErrorMessage } from '@/app/lib/axios';
 

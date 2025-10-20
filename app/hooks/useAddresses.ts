@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { addressesApi, type CreateAddressRequest } from '@/app/api/b2c/addresses';
+import { addressesApi, type CreateAddressRequest } from '@/app/services/addresses';
 import { toast } from 'sonner';
 import { getErrorMessage } from '@/app/lib/axios';
 

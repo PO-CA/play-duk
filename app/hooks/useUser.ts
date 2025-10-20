@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { usersApi, type UpdateUserRequest } from '@/app/api/b2c/users';
+import { usersApi, type UpdateUserRequest } from '@/app/services/users';
 import { toast } from 'sonner';
 import { getErrorMessage } from '@/app/lib/axios';
 import { useAuthStore } from '@/app/store/auth-store';

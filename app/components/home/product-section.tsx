@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ProductCard } from '@/app/components/product-card';
-import type { Product } from '@/app/api/b2c/products';
+import type { Product } from '@/app/services/products';
 
 interface ProductSectionProps {
   title: string;

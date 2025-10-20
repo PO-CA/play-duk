@@ -6,8 +6,8 @@ import { ArtistSwiper } from '@/app/components/home/artist-swiper';
 import { EventProductSwiper } from '@/app/components/home/event-product-swiper';
 import { SimpleBanner } from '@/app/components/home/simple-banner';
 import { ProductSection } from '@/app/components/home/product-section';
-import { productsApi } from '@/app/api/b2c/products';
-import { eventsApi } from '@/app/api/b2c/events';
+import { productsApi } from '@/app/services/products';
+import { eventsApi } from '@/app/services/events';
 
 export default function HomePage() {
   // 데이터 fetch

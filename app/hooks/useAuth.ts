@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { authApi } from '@/app/api/b2c/auth';
+import { authApi } from '@/app/services/auth';
 import { useAuthStore } from '@/app/store/auth-store';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';

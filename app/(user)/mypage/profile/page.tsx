@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useUser, useUpdateUser } from '@/app/hooks/useUser';
-import type { UpdateUserRequest } from '@/app/api/b2c/users';
+import type { UpdateUserRequest } from '@/app/services/users';
 
 // localStorage에서 직접 인증 체크
 function checkAuth(): boolean {

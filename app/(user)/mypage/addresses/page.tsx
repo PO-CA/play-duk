@@ -9,7 +9,7 @@ import {
   useDeleteAddress,
   useSetDefaultAddress,
 } from '@/app/hooks/useAddresses';
-import type { CreateAddressRequest } from '@/app/api/b2c/addresses';
+import type { CreateAddressRequest } from '@/app/services/addresses';
 
 // localStorage에서 직접 인증 체크
 function checkAuth(): boolean {
