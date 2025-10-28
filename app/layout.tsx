@@ -14,7 +14,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'PlayDuk - K-POP 음반 쇼핑몰',
   description:
-    '최고의 K-POP 음반을 만나보세요. 빠른 배송과 안전한 포장으로 소중한 앨범을 배송해드립니다.',
+    '최고의 K-POP 음반을 만나보세요. 빠른 배송과 안전한 포장으로 소중한 앨범을 배송해드립니다',
 };
 
 export default function RootLayout({
