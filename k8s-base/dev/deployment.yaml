@@ -22,9 +22,9 @@ spec:
             - name: NODE_ENV
               value: "production"
           # Kubernetes Secret에서 환경변수 주입
-          envFrom:
-            - secretRef:
-                name: hm-playduk-secrets
+          # envFrom:
+          #   - secretRef:
+          #       name: hm-playduk-secrets
           resources:
             requests:
               cpu: 500m
