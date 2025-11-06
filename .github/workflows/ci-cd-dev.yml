@@ -1,0 +1,95 @@
+name: CI/CD for DEV Environment
+
+on:
+  workflow_dispatch:
+
+env:
+  # 1. GHCR 이미지 경로 설정 (소문자로 변경)
+  IMAGE_NAME: ghcr.io/team-dogfoot/hm-playduk
+
+  # 2. Manifests 레포지토리 정보
+  MANIFEST_REPO_URL: https://github.com/Team-DogFoot/dog-foot-k8s-manifests.git
+  MANIFEST_REPO_PATH: dev/hm-playduk
+
+jobs:
+  build-and-push-ghcr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    outputs:
+      image_tag: ${{ steps.set_tag.outputs.IMAGE_FULL_TAG }}
+    steps:
+      - name: 1. Checkout source code
+        uses: actions/checkout@v4
+
+      - name: 2. Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 3. Set image tag (SHA) & Output
+        id: set_tag
+        run: |
+          # 최종 이미지 태그 문자열 생성
+          FULL_TAG="${{ env.IMAGE_NAME }}:dev-${{ github.sha }}"
+          # 이후 스텝에서 사용할 환경 변수 설정
+          echo "IMAGE_TAG=dev-${{ github.sha }}" >> $GITHUB_ENV
+          # Job output으로 전달할 변수 설정
+          echo "IMAGE_FULL_TAG=$FULL_TAG" >> $GITHUB_OUTPUT
+
+      - name: 4. Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 5. Build and push Docker image
+        id: image_meta
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+          build-args: |
+            NEXT_PUBLIC_API_URL=${{ secrets.DEV_NEXT_PUBLIC_API_URL }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  update-manifests:
+    runs-on: ubuntu-latest
+    needs: build-and-push-ghcr # 빌드 및 푸시 Job이 성공해야 실행
+
+    steps:
+      - name: 1. Install Kustomize
+        run: |
+          curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
+          sudo mv kustomize /usr/local/bin/
+
+      - name: 2. Checkout manifests repository
+        uses: actions/checkout@v4
+        with:
+          repository: Team-DogFoot/dog-foot-k8s-manifests
+          token: ${{ secrets.MANIFESTS_REPO_PAT }} # Manifests 레포 쓰기용 PAT
+          ref: main # Manifests 레포의 main 브랜치 사용
+
+      - name: 3. Update image tag using Kustomize
+        env:
+          NEW_TAG: ${{ needs.build-and-push-ghcr.outputs.image_tag }}
+        run: |
+          cd ${{ env.MANIFEST_REPO_PATH }}
+
+          echo "Kustomize will update to tag: $NEW_TAG"
+
+          kustomize edit set image ${{ env.IMAGE_NAME }}=${NEW_TAG}
+
+          cat kustomization.yaml # 변경된 내용 확인 (로그용)
+
+      - name: 4. Commit and push changes
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "github-actions@github.com"
+          git add .
+          git commit -m "feat(hm-playduk-dev): Deploy image ${{ needs.build-and-push-ghcr.outputs.image_tag }}" || echo "No changes to commit"
+          git pull --rebase origin main
+          git push

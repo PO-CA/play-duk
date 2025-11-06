@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+  - hpa.yaml
+
+# 이미지 태그는 이곳에서 관리합니다.
+# GitHub Actions가 이 값을 변경할 것입니다.
+images:
+  - name: ghcr.io/team-dogfoot/hm-playduk
+    newTag: placeholder

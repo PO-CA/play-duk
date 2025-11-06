@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hm-playduk-ingress
+  annotations:
+    # 1. Ingress Controller 지정
+    kubernetes.io/ingress.class: nginx
+
+    # 2. Cert-Manager에게 인증서를 발급 요청하는 어노테이션 추가 (필수)
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+spec:
+  tls:
+    - hosts:
+        - hm-playduk-dev.dog-foot.com
+      secretName: hm-playduk-dev-tls
+  rules:
+    - host: hm-playduk-dev.dog-foot.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: hm-playduk-svc
+                port:
+                  number: 80
