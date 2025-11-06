@@ -10,7 +10,6 @@ import { productsApi } from '@/services/products';
 import { eventsApi } from '@/services/events';
 
 export default function HomePage() {
-  // 데이터 fetch
   const { data: bestProducts } = useQuery({
     queryKey: ['products', 'best', 12],
     queryFn: () => productsApi.getBestProducts(12),
