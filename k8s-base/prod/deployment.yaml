@@ -27,10 +27,10 @@ spec:
           #       name: hm-playduk-secrets
           resources:
             requests:
-              cpu: 500m
-              memory: 512Mi
+              cpu: 100m
+              memory: 128Mi
             limits:
-              cpu: 1000m
-              memory: 1024Mi
+              cpu: 200m
+              memory: 256Mi
       imagePullSecrets:
         - name: ghcr-auth-secret
